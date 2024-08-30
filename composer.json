@@ -17,6 +17,7 @@
             "App\\": "app/"
         }
     },
+    "license": "MIT",
     "scripts": {
         "serve": "php serve.php",
         "migrate": "php bootstrap/app.php migrate",
