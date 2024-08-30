@@ -1,5 +1,5 @@
 <?php
 return [
-    'debug' => true
+    'debug' => $_ENV['APP_DEBUG']
 ];
 

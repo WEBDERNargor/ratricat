@@ -1,14 +1,16 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php'; // โหลด autoload ของ Composer
-
+require_once __DIR__ . '/function.php';
 use Bramus\Router\Router;
 use App\Console\Migrate;
 use App\core\CustomBlade;
+
+loadEnv(__DIR__ . '/../.env');
 // เช็คว่าถูกเรียกจาก CLI (Command Line Interface)
 if (php_sapi_name() == "cli") {
     $config = require_once __DIR__ . '/../config/database.php';
-    $dsn = "mysql:host={$config['host']};dbname={$config['database']};charset={$config['charset']}";
+    $dsn = "mysql:host={$config['host']};dbname={$config['database']};charset={$config['charset']};port={$config['port']}";
     $pdo = new PDO($dsn, $config['username'], $config['password']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -35,6 +37,11 @@ foreach ($files_routes as $phpFile_routes) {
 $views = __DIR__ . '/../app/Views';
 $cache = __DIR__ . '/../storage/cache';
 $config = [];
+
+
+
+
+
 $config = array_merge(
     $config, // อาเรย์เริ่มต้นว่าง
     require __DIR__ . '/../config/general.php',
