@@ -1,5 +1,7 @@
-# Ratricat
-![Ratricat logo](blob:https://github.com/c3b7f255-656e-4fea-8109-1a5e6bca34b8)
+<h1 align="center">Ratricat</h1>
+<p  align="center">
+<img  width="512" src="https://github.com/WEBDERNargor/ratricat/blob/main/Ratricat.jpg?raw=true"  alt="Material Bread logo">
+</p>
 Ratricat is a small framework in php language. It uses MVC+Routes architecture. Models Cotrollers Views and Routers connect to mysql pdo database.
 
 
