@@ -2,7 +2,7 @@
 
 return [
     'host'      => 'localhost',
-    'database'  => 'db',
+    'database'  => 'ratricat',
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8',
