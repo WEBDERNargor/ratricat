@@ -1,6 +1,8 @@
 <?php
+require_once __DIR__ . '/bootstrap/function.php';
+loadEnv(__DIR__ . '/.env');
+$config = require_once __DIR__ . '/config/general.php';
 set_time_limit(0); // ปิดการจำกัดเวลาสำหรับสคริปต์นี้
-$config=require __DIR__.'/config/general.php';
 $parsedUrl = parse_url($config['url']);
 $scheme = $parsedUrl['scheme']; // http
 $host = $parsedUrl['host'];
