@@ -2,7 +2,7 @@
 
 return [
     'host'      => 'localhost',
-    'database'  => 'phpmvc',
+    'database'  => 'ratricat',
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8',
