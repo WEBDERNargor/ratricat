@@ -3,6 +3,7 @@
     "description": "PHP mini mvc framework",
     "type": "project",
     "require": {
+        "php": ">=7.0",
         "jenssegers/blade": "^1.4",
         "bramus/router": "^1.6"
     },
