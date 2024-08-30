@@ -1,5 +1,5 @@
 {
-    "name": "WEBDERNargor/ratricat",
+    "name": "webdernargor/ratricat",
     "description": "PHP mini mvc framework",
     "type": "project",
     "require": {
