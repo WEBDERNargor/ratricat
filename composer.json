@@ -1,4 +1,7 @@
 {
+    "name": "WEBDERNargor/ratricat",
+    "description": "PHP mini mvc framework",
+    "type": "project",
     "require": {
         "jenssegers/blade": "^1.4",
         "bramus/router": "^1.6"
@@ -11,7 +14,8 @@
     "scripts": {
         "serve": "php serve.php",
         "migrate": "php bootstrap/app.php migrate",
-        "rollback": "php bootstrap/app.php rollback"
+        "rollback": "php bootstrap/app.php rollback",
+        "create-db": "php bootstrap/create-migration.php"
     },
     "config": {
         "process-timeout": 0
