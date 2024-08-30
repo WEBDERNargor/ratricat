@@ -26,7 +26,11 @@ if (php_sapi_name() == "cli") {
 // ตั้งค่า Router
 $router = new Router();
 $router->setNamespace('\App\Controllers');
-require __DIR__ . '/../routes/web.php';
+$folder_routes=__DIR__."/../routes/";
+$files_routes = glob($folder_routes."*.php");
+foreach($files_routes as $phpFile_routes){   
+    require($phpFile_routes); 
+}
 
 // ตั้งค่า Blade สำหรับการแสดงผล
 $views = __DIR__ . '/../app/Views';
