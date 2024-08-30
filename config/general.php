@@ -1,5 +1,5 @@
 <?php
 return [
-    'name' => 'Ratricat',
-    'url' => 'http://localhost:8000',
+    'name' => $_ENV['APP_NAME'],
+    'url' => $_ENV['APP_URL'],
 ];
