@@ -24,6 +24,9 @@
         "rollback": "php bootstrap/app.php rollback",
         "create-db": "php bootstrap/create-migration.php"
     },
+    "scripts-descriptions": {
+    "create-db": "สร้างไฟล์ migration ใหม่ (ใช้: composer create-db -- [table_name])"
+},
     "config": {
         "process-timeout": 0
     }

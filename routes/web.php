@@ -1,4 +1,5 @@
 <?php
 
-$router->get('/', 'HomeController@index');
+addRoute('get', '/', 'home', 'HomeController@index');
+
 
