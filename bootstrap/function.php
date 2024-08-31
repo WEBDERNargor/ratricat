@@ -1,4 +1,9 @@
 <?php
+function pre_r($data){
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
 function loadEnv($path) {
     if (!file_exists($path)) {
         throw new Exception('.env file not found');
@@ -24,3 +29,19 @@ function loadEnv($path) {
         $_SERVER[$name] = $value;
     }
 }
+
+function URL()
+{
+    global $config;
+    return isset($config['url']) ? $config['url'] : '';
+}
+
+// Function to add a route and store its name
+function addRoute($method, $route, $name, $callback) {
+    $config=require_once __DIR__ . '/../config/general.php';
+    $url = $config['url'].$route;
+    $GLOBALS['routerlist'][] =["method"=>$method,"route"=>$route,"name"=>$name,"url"=>$url];
+    $GLOBALS['router']->$method($route, $callback);
+   
+}
+

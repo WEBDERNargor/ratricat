@@ -1,5 +1,5 @@
 <?php
-
+$routerlist = [];
 require_once __DIR__ . '/../vendor/autoload.php'; // โหลด autoload ของ Composer
 require_once __DIR__ . '/function.php';
 use Bramus\Router\Router;
@@ -49,9 +49,10 @@ $config = array_merge(
     require __DIR__ . '/../config/database.php'
 );
 $default_script='';
+
 if($config['debug']){
-    $router->get('/system/devtools', function () {
-        include __DIR__ . '/../system/system.php';
+    $router->get('/system/devtools', function () use($routerlist)   {
+        require(__DIR__ . '/../system/system.php');
         });
 
 
@@ -117,11 +118,7 @@ function VIEW($view, $data = [])
     echo $app->blade->render($view, $data);
 }
 
-function URL()
-{
-    global $config;
-    return isset($config['url']) ? $config['url'] : '';
-}
+
 
 function NAME()
 {
