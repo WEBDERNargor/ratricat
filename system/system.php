@@ -219,7 +219,11 @@ $files_migration = glob($folder_migration . "*.php");
   text-decoration: none;
   cursor: pointer;
 }
-
+.Resource{
+    position: absolute;
+padding: 10px;
+bottom:5%;
+}
 
     </style>
 </head>
@@ -311,6 +315,15 @@ $files_migration = glob($folder_migration . "*.php");
             </div>
         </div>
 
+    </div>
+    <div class="Resource">
+        <div>
+            <h3>Resource</h3>
+            <select name="" id="">
+                <option value="">seleted Resource</option>
+                <option value=""></option>
+            </select>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>

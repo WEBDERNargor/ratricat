@@ -50,7 +50,7 @@ $config = array_merge(
 );
 $default_script='';
 
-if($config['debug']){
+if($config['debug']=='true'){
     $router->get('/system/devtools', function () use($routerlist)   {
         require(__DIR__ . '/../system/system.php');
         });
