@@ -12,9 +12,21 @@ class User
         $this->pdo = $pdo;
     }
 
-    public function all()
+    public function all($fetch = PDO::FETCH_OBJ)
     {
         $stmt = $this->pdo->query("SELECT * FROM users");
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $stmt->fetchAll($fetch);
     }
+
+
+
+    public function custom($sql, $data = [])
+    {
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+       return $stmt;
+    }
+
+  
+  
 }

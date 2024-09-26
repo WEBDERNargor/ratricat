@@ -1,15 +1,7 @@
 <?php
 return [
     "up" => function ($pdo) {
-        // ชื่อของฐานข้อมูลที่คุณต้องการสร้าง
-        $dbName = 'phpmvc';
-
-        // สร้างฐานข้อมูลถ้ายังไม่มีอยู่
-        $pdo->exec("CREATE DATABASE IF NOT EXISTS {$dbName}");
-
-        // ใช้ฐานข้อมูลที่สร้างขึ้นมาใหม่
-        $pdo->exec("USE {$dbName}");
-
+ 
         // สร้างตาราง users ถ้ายังไม่มีอยู่
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS users (
@@ -20,14 +12,14 @@ return [
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         ");
+        //email : admin@admin.com 
+        //password admin
+        $pdo->exec("INSERT INTO `users` (`name`, `email`, `password`) VALUES ('admin', 'admin@admin.com', '$2y$10$50v/esF5care8/U.b4MmIeMncB1.t6DvD2fTE3E0Wi8KTSDidBUpG')");
     },
 
     "down" => function ($pdo) {
-        // ชื่อของฐานข้อมูลที่คุณต้องการลบ
-        $dbName = 'phpmvc';
-
         // ลบตาราง users ถ้ามีอยู่
-        $pdo->exec("DROP TABLE IF EXISTS {$dbName}.users");
+        $pdo->exec("DROP TABLE IF EXISTS users");
     }
 ];
 
