@@ -1,4 +1,6 @@
 <?php
+session_start();
+ob_start();
 $routerlist = [];
 require_once __DIR__ . '/../vendor/autoload.php'; // โหลด autoload ของ Composer
 require_once __DIR__ . '/function.php';
@@ -26,7 +28,6 @@ if (php_sapi_name() == "cli") {
 
 // ตั้งค่า Router
 $router = new Router();
-$router->setNamespace('\App\Controllers');
 $folder_routes = __DIR__ . "/../routes/";
 $files_routes = glob($folder_routes . "*.php");
 foreach ($files_routes as $phpFile_routes) {

@@ -36,12 +36,57 @@ function URL()
     return isset($config['url']) ? $config['url'] : '';
 }
 
-// Function to add a route and store its name
-function addRoute($method, $route, $name, $callback) {
-    $config=require_once __DIR__ . '/../config/general.php';
-    $url = $config['url'].$route;
-    $GLOBALS['routerlist'][] =["method"=>$method,"route"=>$route,"name"=>$name,"url"=>$url];
+
+
+function addRoute($method, $route, $name, $callback)
+{
+    $config = require __DIR__ . '/../config/general.php';
+    $url = $config['url'] . $route;
+    $method = strtolower($method);
+    $GLOBALS['routerlist'][] = ["method" => $method, "route" => $route, "name" => $name, "url" => $url];
     $GLOBALS['router']->$method($route, $callback);
-   
+
 }
 
+
+// Function to add a route and store its name
+function addMatchRoute($method, $route, $name, $callback)
+{
+    $config = require __DIR__ . '/../config/general.php';
+    $url = $config['url'] . $route;
+    $method = strtoupper($method);
+    $GLOBALS['routerlist'][] = ["method" => $method, "route" => $route, "name" => $name, "url" => $url];
+    $GLOBALS['router']->match($method, $route, $callback);
+}
+
+function addRouteMiddleware($method, $route, $callback)
+{
+
+    $method = strtoupper($method);
+    $GLOBALS['router']->before($method, $route, $callback);
+}
+function redirect($url)
+{
+    header("Location: " . $url);
+    exit();
+}
+
+function route($name, $params = [])
+{
+    global $routerlist;
+    
+    foreach ($routerlist as $route) {
+        if ($route['name'] === $name) {
+            $url = $route['url'];
+            
+            // แทนที่พารามิเตอร์ในURL (ถ้ามี)
+            foreach ($params as $key => $value) {
+                $url = str_replace(":$key", $value, $url);
+            }
+            
+            return $url;
+        }
+    }
+    
+    throw new Exception("Route with name '$name' not found.");
+}

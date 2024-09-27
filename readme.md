@@ -23,9 +23,34 @@ The document is under preparation and will be available soon.
 - Route create file .php inside folder routes
 ```php
 <?php
-addRoute('get',  '/',  'home',  'HomeController@index');
+addRoute('get',  '/profile',  'profile',  'App\Controllers\HomeController@index');
 or
 addRoute('get',  '/',  'home',  function(){
+echo "home page";
+});
+```
+- Middleware create file .php inside folder middlewares
+```php
+<?php
+namespace App\Middlewares;
+
+class LoginMiddleware
+{
+    public function handle()
+    {
+        if(!isset($_SESSION['user'])){
+            header('Location: /login');
+            exit;
+        }
+    }
+}
+```
+-use middleware in route
+```php
+<?php
+addRouteMiddleware('get','/profile','App\Middlewares\LoginMiddleware@handle');
+or
+addRouteMiddleware('get','/profile',  function(){
 echo "home page";
 });
 ```
