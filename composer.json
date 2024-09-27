@@ -1,6 +1,6 @@
 {
     "name": "webdernargor/ratricat",
-    "description": "PHP mini mvc framework",
+    "description": "PHP MVC Starter Code",
     "type": "project",
     "require": {
         "php": ">=7.0",
